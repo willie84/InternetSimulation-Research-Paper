@@ -1,0 +1,102 @@
+\documentclass[plain]{sigplanconf}
+\usepackage{balance} % For balanced columns on the last page
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage[toc,page]{appendix}
+\usepackage[
+bookmarksopen,
+bookmarksdepth=2,
+breaklinks=true
+]{hyperref}
+\usepackage{natbib}
+\setcitestyle{square,sort,comma,numbers}
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\makeatletter
+\def\@copyrightspace{\relax}
+\makeatother
+%New colors defined below
+\definecolor{eclipseStrings}{RGB}{42,0.0,255}
+\definecolor{eclipseKeywords}{RGB}{127,0,85}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    commentstyle=\color{eclipseStrings}, % style of comment
+    stringstyle=\color{eclipseKeywords}, % style of strings
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{gray}, %only if you like
+    string=[s]{"}{"},
+    comment=[l]{:\ "},
+    morecomment=[l]{:"},
+    literate=
+    *{0}{{{\color{numb}0}}}{1}
+    {1}{{{\color{numb}1}}}{1}
+    {2}{{{\color{numb}2}}}{1}
+    {3}{{{\color{numb}3}}}{1}
+    {4}{{{\color{numb}4}}}{1}
+    {5}{{{\color{numb}5}}}{1}
+    {6}{{{\color{numb}6}}}{1}
+    {7}{{{\color{numb}7}}}{1}
+    {8}{{{\color{numb}8}}}{1}
+    {9}{{{\color{numb}9}}}{1}
+}
+\begin{document}
+\begin{figure}
+		\centering
+		\includegraphics{sections/pictures-diagrams/PaperCoverSheet.pdf}
+	\end{figure}
+	\title{Simulating Africa's Internet Topology }
+	%%\subtitle{Philosophy Invades Software Engineering}
+	\authorinfo{Willie Macharia}
+	{Department of Computer Science\linebreak University of Cape Town\linebreak South Africa}
+	{September 2020}
+	\maketitle
+	\begin{abstract}
+	Internet traffic originating from Africa and destined to Africa has been characterised with high latency. This has been due to the circuitous paths the intra-continent traffic follows. Many internet researchers have recommended that to solve this challenge, various African ISPs need to peer at local African IXPs. However, the question that arises from this recommendation is what is the best way the African ISPs can peer at local African IXPS and offer the best internet performance. The solution to this question is to first map the existing African internet topology and then perform topology simulation to evaluate performance of various routing and peering scenarios. 
+
+    This paper presents the development and assessment of a web internet topology simulator. The developed simulator allows internet researchers to evaluate internet performance based on the peering scenario and given network conditions. Most of the existing simulators do not run on the web and depend on synthetic generated topology but the simulator discussed in this paper runs on the web and uses topology generated from real internet measurements. 
+
+
+	\end{abstract}
+	\begin{CCSXML}
+		<ccs2012>
+		<concept>
+		 <concept_id>10003033.10003106.10003114</concept_id>
+       <concept_desc>Networks~Overlay and other logical network structures</concept_desc>
+       <concept_significance>500</concept_significance>
+		</concept>
+		</ccs2012>
+	\end{CCSXML}
+	\ccsdesc[500]{Networks~Overlay and other logical network structures}
+	
+	
+	\keywords
+	ISP Peering, IXP, Network Measurements,
+	Internet Topology
+	\input{sections/introduction}
+	\input{sections/background}
+	\input{sections/design_decision}
+	\input{sections/sysdev}
+	\input{sections/results_findings}
+	\input{sections/ethics}
+	\input{sections/conclusions}
+	\bibliographystyle{acm}
+	\bibliography{references}
+	\input{sections/appendix}
+\end{document}
